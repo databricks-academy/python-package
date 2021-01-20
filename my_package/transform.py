@@ -1,5 +1,5 @@
 # Databricks notebook source
-from pyspark import keyword_only 
+from pyspark import keyword_only
 from pyspark.ml import Transformer
 from pyspark.ml.param.shared import HasInputCol, HasOutputCol, Param
 from pyspark.sql.functions import udf
@@ -9,7 +9,9 @@ from pyspark.ml import Pipeline
 
 
 # Inherit Transformer
-class WordsRemover(Transformer, HasInputCol, HasOutputCol, DefaultParamsReadable, DefaultParamsWritable):
+class WordsRemover(
+    Transformer, HasInputCol, HasOutputCol, DefaultParamsReadable, DefaultParamsWritable
+):
 
     # Set up Parameter names and defaults
     @keyword_only
@@ -42,10 +44,10 @@ class WordsRemover(Transformer, HasInputCol, HasOutputCol, DefaultParamsReadable
         words = self.getWords()
 
         def f(s):
-          ret = s
-          for w in words:
-            ret = ret.replace(w,"")
-          return ret
+            ret = s
+            for w in words:
+                ret = ret.replace(w, "")
+            return ret
 
         out_col = self.getOutputCol()
         in_col = dataframe[self.getInputCol()]

@@ -29,9 +29,8 @@ math.squared(4)
 
 # COMMAND ----------
 
-token = dbutils.secrets.get(scope = <USERNAME>, key = <KEY>)
-
-%pip install git+https://$token@github.com/RafiKurlansik/project_test.git
+# token = dbutils.secrets.get(scope = <USERNAME>, key = <KEY>)
+# %pip install git+https://$token@github.com/RafiKurlansik/project_test.git
 
 # COMMAND ----------
 
@@ -43,8 +42,10 @@ token = dbutils.secrets.get(scope = <USERNAME>, key = <KEY>)
 
 # COMMAND ----------
 
- dbutils.fs.mv("file:/databricks/driver/my_package-0.1-py3-none-any.whl?raw=true",
-               "dbfs:/dist/my_package-0.1-py3-none-any.whl")
+dbutils.fs.mv(
+    "file:/databricks/driver/my_package-0.1-py3-none-any.whl?raw=true",
+    "dbfs:/dist/my_package-0.1-py3-none-any.whl",
+)
 
 # COMMAND ----------
 

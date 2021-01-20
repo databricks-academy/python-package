@@ -1,3 +1,3 @@
 # Databricks notebook source
-def squared (x):
-  return x**2
+def squared(x):
+    return x ** 2
