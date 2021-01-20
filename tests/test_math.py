@@ -1,4 +1,4 @@
-# Databricks Notebook Source
+# Databricks notebook source
 from my_package.math import squared
 
 
